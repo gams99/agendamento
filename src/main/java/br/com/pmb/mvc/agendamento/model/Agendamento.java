@@ -2,10 +2,7 @@ package br.com.pmb.mvc.agendamento.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Agendamento {
@@ -13,9 +10,13 @@ public class Agendamento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	public String cliente;
+	@ManyToOne
+	public Cliente cliente;
+
 	public LocalDate dataDaVisita;
+
 	public String motivo;
+
 	public String comentarios;
 	
 	public String getCliente() {
